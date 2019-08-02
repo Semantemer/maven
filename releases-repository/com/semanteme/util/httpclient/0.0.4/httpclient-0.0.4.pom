@@ -59,7 +59,13 @@
     <repositories>
         <repository>
             <id>semanteme-releases</id>
-            <url>https://raw.github.com/Semantemer/maven-repository/master/repository</url>
+            <name>Releases Repository</name>
+            <url>https://raw.github.com/Semantemer/maven-repository/master/releases-repository</url>
+        </repository>
+        <repository>
+            <id>semanteme-snapshots</id>
+            <name>Snapshot Repository</name>
+            <url>https://raw.github.com/Semantemer/maven-repository/master/snapshosts-repository</url>
         </repository>
     </repositories>
 
