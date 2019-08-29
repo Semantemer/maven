@@ -82,6 +82,7 @@ under the License.
      | Specifies a further group identifier to use for plugin lookup.
     <pluginGroup>com.your.plugins</pluginGroup>
     -->
+	<pluginGroup>com.netposa.maven.plugin</pluginGroup>
   </pluginGroups>
 
   <!-- proxies
@@ -133,16 +134,15 @@ under the License.
     </server>
     -->
 	<server>
-		<id>semanteme-releases</id>
-		<username>semantemer</username>
-		<password>gh906860186</password>
+		<id>netposa-releases</id>
+		<username>pva_develop</username>
+		<password>123456</password>
 	</server>
-
-  <server>
-    <id>semanteme-snapshots</id>
-    <username>semantemer</username>
-    <password>gh906860186</password>
-  </server>
+	<server>
+		<id>netposa-snapshots</id>
+		<username>pva_develop</username>
+		<password>123456</password>
+	</server>
 
   </servers>
 
@@ -178,20 +178,11 @@ under the License.
         <url>http://maven.aliyun.com/nexus/content/groups/public</url>
     </mirror>
 	-->
-	  <mirror>   
-      <id>alimaven</id>
-      <name>aliyun maven</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-      <mirrorOf>central</mirrorOf> 
+	<mirror>   
+      <id>netposa-releases</id>   
+      <mirrorOf>*</mirrorOf>   
+      <url>http://172.16.129.84:9020/content/groups/netposa</url>  
     </mirror> 
-
-    <!-- <mirror>   
-      <id>semanteme-releases</id>
-      <name>aliyun maven</name>
-      <url>https://raw.github.com/Semantemer/maven-repository/master/repository</url>
-      <mirrorOf>*</mirrorOf>
-    </mirror> -->
-
   </mirrors>
   
   <!-- profiles
@@ -245,46 +236,46 @@ under the License.
       </repositories>
     </profile>
     -->  
-	
+	<!--
 	 <profile>       
-	   <id>default</id>       
+	   <id>jdk-1.6</id>       
 	   <activation>       
 		   <activeByDefault>true</activeByDefault>       
-		   <jdk>1.8</jdk>       
+		   <jdk>1.6</jdk>       
 	   </activation>       
 	   <properties>       
-		   <maven.compiler.source>1.8</maven.compiler.source>       
-		   <maven.compiler.target>1.8</maven.compiler.target>       
-		   <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>       
+		   <maven.compiler.source>1.7</maven.compiler.source>       
+		   <maven.compiler.target>1.7</maven.compiler.target>       
+		   <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>       
 	   </properties>
 	   <repositories>
-        <repository>
-            <id>semanteme-releases</id>
-            <name>Releases Repository</name>
-            <url>https://raw.github.com/Semantemer/maven-repository/master/releases-repository</url>
-        </repository>
-        <repository>
-            <id>semanteme-snapshots</id>
-            <name>Snapshot Repository</name>
-            <url>https://raw.github.com/Semantemer/maven-repository/master/snapshosts-repository</url>
-        </repository>
-    </repositories>
-
-    <!-- <distributionManagement>
-        <repository>
-            <id>semanteme-releases</id>
-            <name>Releases Repository</name>
-            <url>file:C:\Programming\GitRepository\Maven\maven-repository\releases-repository\</url>
-        </repository>
-        <snapshotRepository>
-            <id>semanteme-snapshots</id>
-            <name>Snapshot Repository</name>
-            <url>file:C:\Programming\GitRepository\Maven\maven-repository\snapshosts-repository\</url>
-        </snapshotRepository>
-    </distributionManagement> -->
-
+			<repository>
+				<id>netposa</id>
+				<name>local private netposa</name>
+				<url>http://192.168.60.253:9020/content/groups/netposa</url>
+				<releases>
+					<enabled>true</enabled>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+				</snapshots>
+			</repository>
+        </repositories>
+		<pluginRepositories>
+			<pluginRepository>
+				<id>netposa</id>
+				<name>local private netposa</name>
+				<url>http://192.168.60.253:9020/content/groups/netposa</url>
+				<releases>
+					<enabled>true</enabled>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+				</snapshots>
+			</pluginRepository>
+		</pluginRepositories>
    </profile> 
-   
+   -->
     <!--
      | Here is another profile, activated by the system property 'target-env' with a value of 'dev',
      | which provides a specific path to the Tomcat instance. To use this, your plugin configuration
@@ -319,32 +310,6 @@ under the License.
       </properties>
     </profile>
     -->
-
-    <profile>
-      <!-- 开发环境 -->
-      <id>dev</id>
-      <properties>
-        <env>dev</env>
-      </properties>
-      <activation>
-        <!-- 设置默认激活这个配置 -->
-        <activeByDefault>true</activeByDefault>
-      </activation>
-    </profile>
-    <profile>
-      <!-- 测试环境 -->
-      <id>test</id>
-      <properties>
-        <env>test</env>
-      </properties>
-    </profile>
-    <profile>
-      <!-- 发布环境 -->
-      <id>pro</id>
-      <properties>
-        <env>pro</env>
-      </properties>
-    </profile>
 	
   </profiles>
   
