@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.semanteme.cloud</groupId>
+  <artifactId>cloud-agent-core</artifactId>
+  <versioning>
+    <versions>
+      <version>0.0.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20200412143330</lastUpdated>
+  </versioning>
+</metadata>
